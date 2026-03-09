@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vanlocker - Recuperar contraseña</title>
+</head>
+<body>
+  <p>Redirigiendo a la app...</p>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    if (token) {
+      window.location.href = "vanlocker://reset-password?token=" + token;
+    } else {
+      document.body.innerHTML = "<p>Enlace no válido.</p>";
+    }
+  </script>
+</body>
+</html>
