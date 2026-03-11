@@ -2,15 +2,21 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Vanlocker - Recuperar contraseña</title>
+  <title>Vanlocker</title>
 </head>
 <body>
   <p>Redirigiendo a la app...</p>
   <script>
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
+    const pago = params.get("pago");
+    
     if (token) {
       window.location.href = "vanlocker://reset-password?token=" + token;
+    } else if (pago === "exitoso") {
+      window.location.href = "vanlocker://pago-completado";
+    } else if (pago === "cancelado") {
+      window.location.href = "vanlocker://pago-cancelado";
     } else {
       document.body.innerHTML = "<p>Enlace no válido.</p>";
     }
