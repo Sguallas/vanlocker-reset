@@ -14,8 +14,9 @@
     if (token) {
       window.location.href = "vanlocker://reset-password?token=" + token;
     } else if (pago === "exitoso") {
-      window.location.href = "vanlocker://pago-completado";
-    } else if (pago === "cancelado") {
+  const reservaId = params.get("reserva_id") || "";
+  window.location.href = "vanlocker://pago-completado?reserva_id=" + reservaId;
+} else if (pago === "cancelado") {
       window.location.href = "vanlocker://pago-cancelado";
     } else {
       document.body.innerHTML = "<p>Enlace no válido.</p>";
